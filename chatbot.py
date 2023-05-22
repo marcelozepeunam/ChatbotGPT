@@ -9,13 +9,15 @@ api_key=os.getenv("OPENAI_API_KEY")
 openai.api_key=api_key
 
 modelo="text-davinci-002"
-prompt="¿Cuál es la capital de México?"
+prompt="De que se trata la película de el padrino?"
 
 #Enviamos una petición
 respuesta=openai.Completion.create(
     engine=modelo, #Davinci
     prompt=prompt, #Indicación que se le dara a la IA 
-    n=1 #Número de respuestas que queremos recibir
+    n=1, #Número de respuestas que queremos recibir
+    temperature=1, #Creatividad de la respuesta se mide en un rango de [0-1]
+    max_tokens=100 #Largo de la respuesta 
 )
 
 #Recibiendo la respuesta 
